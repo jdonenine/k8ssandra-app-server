@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Dev Server" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="start" />
+    </scripts>
+    <node-interpreter value="project" />
+    <envs>
+      <env name="APP_SECRET" value="development" />
+      <env name="APP_SUPER_USER_INIT" value="true" />
+      <env name="APP_DEBUG" value="false" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
