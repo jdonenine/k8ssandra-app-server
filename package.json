@@ -1,13 +1,13 @@
 {
   "name": "k8ssandra-app-server",
-  "version": "0.0.1",
+  "version": "0.0.1-SNAPSHOT",
   "description": "A backend-for-frontend server implementation providing integration support for the k8ssandra-app project",
   "main": "dist/k8ssandra-app-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -w src --ext ts --exec ts-node src/index.ts",
     "clean": "del dist && del build",
-    "build": "webpack",
+    "build": "tsc",
     "pretty": "pretty-quick",
     "pretty:check": "pretty-quick --check"
   },
@@ -66,7 +66,6 @@
     "ts-node": "^10.7.0",
     "typegraphql-description-loader": "^1.1.0",
     "typescript": "^4.6.3",
-    "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
   }

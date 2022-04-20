@@ -9,7 +9,6 @@ RUN npm ci && npm cache clean --force
 COPY ./src ./src
 COPY package.json package.json
 COPY tsconfig.json tsconfig.json
-COPY webpack.config.js webpack.config.js
 RUN npm run build
 
 FROM node:16-slim
@@ -20,7 +19,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 COPY package.json package-lock.json* ./
 RUN npm ci && npm cache clean --force
-COPY --from=builder /usr/src/app/dist ./
+COPY --from=builder /usr/src/app/build ./
 EXPOSE 3000
-CMD ["node", "k8ssnadra-app-server.js"]
+CMD ["node", "index.js"]
 

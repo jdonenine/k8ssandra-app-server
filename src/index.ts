@@ -11,8 +11,6 @@ import {AuthResolver} from './resolvers/auth.resolver';
 import {UserResolver} from './resolvers/user.resolver';
 import {LOCAL_USER_SERVICE} from './services/local-user.service';
 import {ROLES_ALL} from './auth/roles';
-import {PODS_SERVICE} from './services/pods.service';
-import {SECRET_SERVICE} from './services/secret.service';
 import {K8cResolver} from './resolvers/k8c.resolver';
 
 export const APP_SECRET = process.env.APP_SECRET || '';
@@ -37,13 +35,6 @@ if (APP_SUPER_USER_INIT) {
     )
     .catch((error) => console.error('Unable to initialize default super-user', error));
 }
-
-PODS_SERVICE.getPods('kind-k8ssandra-0', 'k8ssandra-operator')
-  .then((pods) => console.log(pods))
-  .catch((error) => console.error(error));
-SECRET_SERVICE.getSecrets('kind-k8ssandra-0', 'k8ssandra-operator')
-  .then((secrets) => console.log(secrets))
-  .catch((error) => console.error(error));
 
 async function main(): Promise<ServerInfo> {
   const schema = await buildSchema({
